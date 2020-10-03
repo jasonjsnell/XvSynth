@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BBA157FA2524D4950088EABF /* XvEnvelopeAR.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA157F92524D4950088EABF /* XvEnvelopeAR.swift */; };
 		BBD0653825237F220071FAB3 /* XvSynth.h in Headers */ = {isa = PBXBuildFile; fileRef = BBD0653625237F220071FAB3 /* XvSynth.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		BBD0654E252380480071FAB3 /* XvSine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD0654D252380480071FAB3 /* XvSine.swift */; };
+		BBD0654E252380480071FAB3 /* XvWaveSine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD0654D252380480071FAB3 /* XvWaveSine.swift */; };
 		BBD06558252381170071FAB3 /* XvDataMapping.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBD06555252380F70071FAB3 /* XvDataMapping.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,10 +24,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BBA157F92524D4950088EABF /* XvEnvelopeAR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvEnvelopeAR.swift; sourceTree = "<group>"; };
 		BBD0653325237F220071FAB3 /* XvSynth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XvSynth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD0653625237F220071FAB3 /* XvSynth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XvSynth.h; sourceTree = "<group>"; };
 		BBD0653725237F220071FAB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BBD0654D252380480071FAB3 /* XvSine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvSine.swift; sourceTree = "<group>"; };
+		BBD0654D252380480071FAB3 /* XvWaveSine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvWaveSine.swift; sourceTree = "<group>"; };
 		BBD06550252380F70071FAB3 /* XvDataMapping.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XvDataMapping.xcodeproj; path = ../../UTILS/XvDataMapping/XvDataMapping.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -45,7 +47,8 @@
 		BBD0652925237F220071FAB3 = {
 			isa = PBXGroup;
 			children = (
-				BBD0654D252380480071FAB3 /* XvSine.swift */,
+				BBD0654D252380480071FAB3 /* XvWaveSine.swift */,
+				BBA157F92524D4950088EABF /* XvEnvelopeAR.swift */,
 				BBD06550252380F70071FAB3 /* XvDataMapping.xcodeproj */,
 				BBD0654925237F3E0071FAB3 /* Private */,
 				BBD06557252381170071FAB3 /* Frameworks */,
@@ -189,7 +192,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBD0654E252380480071FAB3 /* XvSine.swift in Sources */,
+				BBD0654E252380480071FAB3 /* XvWaveSine.swift in Sources */,
+				BBA157FA2524D4950088EABF /* XvEnvelopeAR.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
