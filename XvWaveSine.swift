@@ -10,25 +10,33 @@ import XvDataMapping
 
 public class XvWaveSine {
     
-    //MARK: Time
-    //time interval needs to match the timeInterval of the Timer object that is firing / refreshing this object
-    //that way the seconds variable matches "real" time
-    fileprivate var _seconds:Double = 0.0
-    fileprivate var _timeInterval:Double = 0.1
     
-    //math constant
-    fileprivate let SINE_CYCLE:Double = 2.0 * Double.pi
-    
-    //MARK: Access wave data
+    //MARK: - Accessors -
     
     //standard -1.0 to 1.0
-    public var value:Double = 0.0
+    public var value:Double {
+        get { return _calculateSine() }
+    }
+    
+    public func value(withPhaseShift:Double) -> Double {
+        return _calculateSine(withPhaseShift: withPhaseShift)
+    }
     
     // instead of -1.0 to 1.0, it alters it 0.0-1.0
     public var zeroBaseline:Double {
         get { return (value + amplitude) / 2.0 }
     }
     
+    //MARK: - Variables
+    //MARK: Time
+    //time interval needs to match the timeInterval of the Timer object that is firing / refreshing this object
+    //that way the seconds variable matches "real" time
+    fileprivate var _seconds:Double = 0.0
+    fileprivate var _timeInterval:Double = 0.1
+    
+    //MARK: Sine cycle
+    //math constant
+    fileprivate let SINE_CYCLE:Double = 2.0 * Double.pi
     
     //MARK: Frequency
     //if frequency is 1.0, then the sine wave will cycle one cycle per second
@@ -73,15 +81,40 @@ public class XvWaveSine {
     }
     
     //MARK: - Refresh
+    //https://www.mathsisfun.com/algebra/amplitude-period-frequency-phase-shift.html
+    /*
+     y = A sin(B(x + C)) + D
+     
+     amplitude is A
+     period is 2π/B
+     phase shift is C (positive is to the left, negative to the right)
+     vertical shift is D
+     
+     */
     public func refresh(){
         
+        //update time interval
         _seconds += _timeInterval
-        //print("_seconds", _seconds)
         
-        value = _amplitude * sin(SINE_CYCLE * _frequency * _seconds)
+    }
+    
+    //MARK: - calculations
+    //current sine wave
+    fileprivate func _calculateSine() -> Double {
+        
+        let sineWave:Double = _amplitude * sin(SINE_CYCLE * _frequency * _seconds)
         
         //round it
-        value = Double(Int(value * _roundTo)) / _roundTo
+        return Double(Int(sineWave * _roundTo)) / _roundTo
+    }
+    
+    //current wave with phase shift
+    fileprivate func _calculateSine(withPhaseShift:Double) -> Double {
+        
+        let sineWave:Double = _amplitude * sin(SINE_CYCLE * _frequency * _seconds + withPhaseShift)
+        
+        //round it
+        return Double(Int(sineWave * _roundTo)) / _roundTo
         
     }
 }
