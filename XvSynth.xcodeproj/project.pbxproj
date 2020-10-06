@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB20A402252BA64600D3626B /* XvLFO.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20A401252BA64600D3626B /* XvLFO.swift */; };
+		BB20A406252BA6B000D3626B /* XvWave.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB20A405252BA6B000D3626B /* XvWave.swift */; };
+		BB20A415252BBF3E00D3626B /* XvUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB20A414252BBF2C00D3626B /* XvUtils.framework */; };
 		BBA157FA2524D4950088EABF /* XvEnvelopeAR.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA157F92524D4950088EABF /* XvEnvelopeAR.swift */; };
 		BBD0653825237F220071FAB3 /* XvSynth.h in Headers */ = {isa = PBXBuildFile; fileRef = BBD0653625237F220071FAB3 /* XvSynth.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BBD0654E252380480071FAB3 /* XvWaveSine.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD0654D252380480071FAB3 /* XvWaveSine.swift */; };
@@ -14,6 +17,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BB20A413252BBF2C00D3626B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BB20A40F252BBF2C00D3626B /* XvUtils.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 96F3779D1E70E7C7000522BD;
+			remoteInfo = XvUtils;
+		};
 		BBD06554252380F70071FAB3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BBD06550252380F70071FAB3 /* XvDataMapping.xcodeproj */;
@@ -24,6 +34,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BB20A401252BA64600D3626B /* XvLFO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvLFO.swift; sourceTree = "<group>"; };
+		BB20A405252BA6B000D3626B /* XvWave.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvWave.swift; sourceTree = "<group>"; };
+		BB20A40F252BBF2C00D3626B /* XvUtils.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = XvUtils.xcodeproj; path = ../../UTILS/XvUtils/XvUtils.xcodeproj; sourceTree = "<group>"; };
 		BBA157F92524D4950088EABF /* XvEnvelopeAR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XvEnvelopeAR.swift; sourceTree = "<group>"; };
 		BBD0653325237F220071FAB3 /* XvSynth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XvSynth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBD0653625237F220071FAB3 /* XvSynth.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XvSynth.h; sourceTree = "<group>"; };
@@ -37,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB20A415252BBF3E00D3626B /* XvUtils.framework in Frameworks */,
 				BBD06558252381170071FAB3 /* XvDataMapping.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,12 +58,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB20A410252BBF2C00D3626B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BB20A414252BBF2C00D3626B /* XvUtils.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		BBD0652925237F220071FAB3 = {
 			isa = PBXGroup;
 			children = (
 				BBD0654D252380480071FAB3 /* XvWaveSine.swift */,
+				BB20A405252BA6B000D3626B /* XvWave.swift */,
+				BB20A401252BA64600D3626B /* XvLFO.swift */,
 				BBA157F92524D4950088EABF /* XvEnvelopeAR.swift */,
 				BBD06550252380F70071FAB3 /* XvDataMapping.xcodeproj */,
+				BB20A40F252BBF2C00D3626B /* XvUtils.xcodeproj */,
 				BBD0654925237F3E0071FAB3 /* Private */,
 				BBD06557252381170071FAB3 /* Frameworks */,
 			);
@@ -159,6 +184,10 @@
 					ProductGroup = BBD06551252380F70071FAB3 /* Products */;
 					ProjectRef = BBD06550252380F70071FAB3 /* XvDataMapping.xcodeproj */;
 				},
+				{
+					ProductGroup = BB20A410252BBF2C00D3626B /* Products */;
+					ProjectRef = BB20A40F252BBF2C00D3626B /* XvUtils.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -168,6 +197,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		BB20A414252BBF2C00D3626B /* XvUtils.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = XvUtils.framework;
+			remoteRef = BB20A413252BBF2C00D3626B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		BBD06555252380F70071FAB3 /* XvDataMapping.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -192,7 +228,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB20A406252BA6B000D3626B /* XvWave.swift in Sources */,
 				BBD0654E252380480071FAB3 /* XvWaveSine.swift in Sources */,
+				BB20A402252BA64600D3626B /* XvLFO.swift in Sources */,
 				BBA157FA2524D4950088EABF /* XvEnvelopeAR.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
