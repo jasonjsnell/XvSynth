@@ -13,12 +13,12 @@ import XvDataMapping
 
 public class XvEnvelopeAR {
     
-    let resistor:XvResistorClosed
+    let resistor:XvClosedResistor
     
     
     public init(maxValue:Double){
         
-        resistor = XvResistorClosed(tolerance: maxValue, resistance: 0.0)
+        resistor = XvClosedResistor(tolerance: maxValue, resistance: 0.0)
     }
     
     public var attack:Double {
