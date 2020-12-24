@@ -13,22 +13,21 @@ public class XvWave {
     //MARK: - Accessors -
     
     //standard -1.0 to 1.0
+    internal var _value:Double = 0
     public var value:Double {
-        get { return _generateWave() }
-    }
-    
-    //with phase shift
-    public func value(withPhaseShift:Double) -> Double {
-        return _generateWave(withPhaseShift: withPhaseShift)
+        get { _value }
     }
     
     // instead of -1.0 to 1.0, it alters it 0.0-1.0
     public var zeroBaseline:Double {
         get { return (value + amplitude) / 2.0 }
     }
+    
     //with phase shift
-    public func zeroBaseline(withPhaseShift:Double) -> Double {
-        return (value(withPhaseShift: withPhaseShift) + amplitude) / 2.0
+    internal var _phaseShift:Double = 0
+    public var phaseShift:Double {
+        get { return _phaseShift }
+        set { _phaseShift = newValue }
     }
     
     //MARK: - Variables
@@ -47,9 +46,9 @@ public class XvWave {
     public var frequency:Double {
         get { return _frequency }
         set {
-            if (newValue > _timeInterval) {
-                print("XvWave: Error: frequency", newValue,  "is higher than the timeInterval", _timeInterval, ", so sine wave will lose resolution. For higher frequencies, create a faster Timer and timeInterval.")
-            }
+            //if (newValue > _timeInterval) {
+              //  print("XvWave: Error: frequency", newValue,  "is higher than the timeInterval", _timeInterval, ", so sine wave will lose resolution. For higher frequencies, create a faster Timer and timeInterval.")
+            //}
             _frequency = newValue
         }
     }
@@ -80,29 +79,11 @@ public class XvWave {
     
     //MARK: - Refresh
     
-    
     public func refresh(){
         
         //update time interval
         _seconds += _timeInterval
-    }
-    
-    //MARK: - calculations
-    //current sine wave
-    internal func _generateWave() -> Double {
         
-        return _generateWave(withPhaseShift: 0)
-    }
-    
-    //current wave with phase shift
-    internal func _generateWave(withPhaseShift:Double) -> Double {
-        
-        //OVERRIDE THIS FUNC IN SUB-CLASS WITH SPECIFIC WAVE SHAPE (LIKE SINE WAVE)
-        //calc wave here
-        //example: let sineWave:Double = _amplitude * sin(SINE_CYCLE * _frequency * _seconds + withPhaseShift)
-        
-        print("XvWave: Error: _generateWave(withPhaseShift) needs to be override in subclass with specific wave shape.")
-        return 0
-        
+        //wave is render in sub classes in refresh()
     }
 }

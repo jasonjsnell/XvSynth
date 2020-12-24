@@ -12,12 +12,15 @@ import XvDataMapping
 public class XvLFO {
     
     public var value:Double {
-        get { return wave.value(withPhaseShift: phaseShift) }
+        get { return wave.value }
     }
     public var zeroBaseline:Double {
-        get { return wave.zeroBaseline(withPhaseShift: phaseShift) }
+        get { return wave.zeroBaseline }
     }
-    public var phaseShift:Double = 0.0
+    public var phaseShift:Double {
+        get { return wave.phaseShift }
+        set { wave.phaseShift = newValue }
+    }
     
     
     //MARK: Speed
@@ -42,6 +45,7 @@ public class XvLFO {
         get { return _multipier }
         set {
             _multipier = _multiplierAttenuator.attenuate(value: newValue)
+            wave.frequency = _speed * _multiples[_multipier-1]
         }
     }
     
