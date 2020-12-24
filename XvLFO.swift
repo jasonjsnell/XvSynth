@@ -12,15 +12,12 @@ import XvDataMapping
 public class XvLFO {
     
     public var value:Double {
-        get { return wave.value }
+        get { return wave.value(withPhaseShift: phaseShift) }
     }
     public var zeroBaseline:Double {
-        get { return wave.zeroBaseline }
+        get { return wave.zeroBaseline(withPhaseShift: phaseShift) }
     }
-    public var phaseShift:Double {
-        get { return wave.phaseShift }
-        set { wave.phaseShift = newValue }
-    }
+    public var phaseShift:Double = 0.0
     
     
     //MARK: Speed

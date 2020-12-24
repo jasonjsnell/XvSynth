@@ -40,19 +40,11 @@ public class XvWaveSine:XvWave {
     //MARK: - calculations
     
     //current wave with phase shift
-    public override func refresh() {
+    internal override func _generateWave(withPhaseShift:Double) -> Double {
         
-        super.refresh()
-        
-        let sineWave:Double = _amplitude * sin(SINE_CYCLE * _frequency * _seconds + _phaseShift)
-        
-        /*print("")
-        print("amp", _amplitude)
-        print("frq", _frequency)
-        print("shf", withPhaseShift)
-        print("result", Double(Int(sineWave * _roundTo)) / _roundTo)*/
+        let sineWave:Double = _amplitude * sin(SINE_CYCLE * _frequency * _seconds + withPhaseShift)
         //round it
-        _value = Double(Int(sineWave * _roundTo)) / _roundTo
+        return Double(Int(sineWave * _roundTo)) / _roundTo
         
     }
 }
