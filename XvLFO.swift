@@ -12,6 +12,9 @@ import XvDataMapping
 public class XvLFO {
     
     public var value:Double {
+        get { return wave.value(withPhaseShift: phaseShift) }
+    }
+    public var zeroBaseline:Double {
         get { return wave.zeroBaseline(withPhaseShift: phaseShift) }
     }
     public var phaseShift:Double = 0.0
@@ -62,8 +65,6 @@ public class XvLFO {
         
         _multiplierAttenuator = XvAttenuator(min: Double(MULTIPLES_MIN), max: Double(MULTIPLES_MAX))
         _multiples = [1] + Number.getGeometricSeries(exponent: 2.0, seriesLength: MULTIPLES_MAX)
-        
-        
     }
     
     //pass to wave

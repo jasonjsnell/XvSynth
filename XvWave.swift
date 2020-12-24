@@ -16,6 +16,7 @@ public class XvWave {
     public var value:Double {
         get { return _generateWave() }
     }
+    
     //with phase shift
     public func value(withPhaseShift:Double) -> Double {
         return _generateWave(withPhaseShift: withPhaseShift)
@@ -27,7 +28,7 @@ public class XvWave {
     }
     //with phase shift
     public func zeroBaseline(withPhaseShift:Double) -> Double {
-        return (value(withPhaseShift:withPhaseShift) + amplitude) / 2.0
+        return (value(withPhaseShift: withPhaseShift) + amplitude) / 2.0
     }
     
     //MARK: - Variables
@@ -84,7 +85,6 @@ public class XvWave {
         
         //update time interval
         _seconds += _timeInterval
-        
     }
     
     //MARK: - calculations
@@ -97,13 +97,12 @@ public class XvWave {
     //current wave with phase shift
     internal func _generateWave(withPhaseShift:Double) -> Double {
         
+        //OVERRIDE THIS FUNC IN SUB-CLASS WITH SPECIFIC WAVE SHAPE (LIKE SINE WAVE)
         //calc wave here
         //example: let sineWave:Double = _amplitude * sin(SINE_CYCLE * _frequency * _seconds + withPhaseShift)
         
-        let wave:Double = 0
-        
-        //round it
-        return Double(Int(wave * _roundTo)) / _roundTo
+        print("XvWave: Error: _generateWave(withPhaseShift) needs to be override in subclass with specific wave shape.")
+        return 0
         
     }
 }

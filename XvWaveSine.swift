@@ -20,36 +20,22 @@ import XvDataMapping
  
  */
 
+
 public class XvWaveSine:XvWave {
     
-    
     //MARK: - Accessors -
-    
-    
-    
-    
-    
-    
     
     //MARK: Sine cycle
     //math constant
     fileprivate let SINE_CYCLE:Double = 2.0 * Double.pi
     
-    
-    
-    
-    
-    
-    
+
     //MARK: Init
     
     public override init(timeInterval:TimeInterval, amplitudeResistance:Double = 0.1, roundTo:Double = 10000){
         
         super.init(timeInterval: timeInterval, amplitudeResistance: amplitudeResistance, roundTo: roundTo)
-        
     }
-    
-    
     
     //MARK: - calculations
     //current sine wave
@@ -63,6 +49,11 @@ public class XvWaveSine:XvWave {
         
         let sineWave:Double = _amplitude * sin(SINE_CYCLE * _frequency * _seconds + withPhaseShift)
         
+        print("")
+        print("amp", _amplitude)
+        print("frq", _frequency)
+        print("shf", withPhaseShift)
+        print("result", Double(Int(sineWave * _roundTo)) / _roundTo)
         //round it
         return Double(Int(sineWave * _roundTo)) / _roundTo
         
